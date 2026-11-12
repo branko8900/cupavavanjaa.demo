@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Čupavi trener · trening za devojke</title>
+<meta name="description" content="Čupavo je – ali nisi sama. Trening za devojke koje žele snagu, samopouzdanje i zdrav odnos prema sebi.">
+<meta name="theme-color" content="#FFF8FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151A33" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg stroke='%231D2245' stroke-width='1.6' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M11 13.2 7.6 21l2.6-1.2 1.2 2.2L13 13.2z' fill='%23BFE3F7'/%3E%3Cpath d='M13 13.2 16.4 21l-2.6-1.2-1.2 2.2L11 13.2z' fill='%23BFE3F7'/%3E%3Cpath d='M12 11.5C9 6 2 4.5 2.2 10.3c.2 5 6.4 4.7 9.8 1.2z' fill='%23F4A6C3'/%3E%3Cpath d='M12 11.5C15 6 22 4.5 21.8 10.3c-.2 5-6.4 4.7-9.8 1.2z' fill='%23F4A6C3'/%3E%3Ccircle cx='12' cy='11.6' r='2.4' fill='%23FBD3E2'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..700,100,1;1,9..144,500..700,100,1&subset=latin-ext&display=swap">
+<style>
+/* ============ Tokeni ============ */
+:root{
+  --cream:#FFF8FB;
+  --pink-100:#FDE7EF; --pink-200:#FBD3E2; --pink-400:#F4A6C3;
+  --blue-100:#E6F3FC; --blue-200:#BFE3F7; --blue-400:#8EC9EE;
+  --ink:#1D2245; --ink-soft:#4B5072; --berry:#B8336A;
+
+  /* semantika (svetla) */
+  --bg:var(--cream); --bg-blue:var(--blue-100); --bg-pink:var(--pink-100);
+  --text:var(--ink); --text-soft:var(--ink-soft);
+  --line:var(--ink);                 /* obrisi i tvrde senke */
+  --accent:var(--berry);             /* samo na --cream i --blue-100 */
+  --fill-pink:var(--pink-200); --fill-blue:var(--blue-200);
+  --fill-pink-soft:var(--pink-100); --fill-blue-soft:var(--blue-100);
+  --on-fill:var(--ink);
+  --btn-pink:var(--pink-400); --btn-blue:var(--blue-200); --btn-text:var(--ink);
+  --curl-blue:var(--blue-400); --curl-pink:var(--pink-400);
+  --bow-fill:var(--pink-400); --bow-knot:var(--pink-200); --bow-tail:var(--blue-200);
+  --nav-bg:var(--ink); --nav-text:var(--cream); --nav-active:rgba(255,248,251,.16);
+  --sheet-bg:var(--cream); --field-bg:var(--cream);
+  --backdrop:rgba(29,34,69,.45);
+
+  --radius-card:24px; --radius-photo:28px;
+  --shadow:4px 4px 0 var(--line);
+  --gutter:max(1rem, env(safe-area-inset-left), env(safe-area-inset-right));
+  --nav-space:6.5rem; /* JS meri stvarnu visinu navigacije */
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#151A33; --bg-blue:#1F2547; --bg-pink:#1F2547;
+    --text:#F3EEF8; --text-soft:#B9BED8;
+    --line:rgba(243,238,248,.3);
+    --accent:#FF9EC4;
+    --fill-pink:#FF9EC4; --fill-blue:#9FD3F5;
+    --fill-pink-soft:#1F2547; --fill-blue-soft:#1F2547;
+    --on-fill:#151A33;
+    --btn-pink:#FF9EC4; --btn-blue:#9FD3F5; --btn-text:#151A33;
+    --curl-blue:#9FD3F5; --curl-pink:#FF9EC4;
+    --bow-fill:#FF9EC4; --bow-knot:#F3EEF8; --bow-tail:#9FD3F5;
+    --nav-bg:#1F2547; --nav-text:#F3EEF8; --nav-active:rgba(243,238,248,.14);
+    --sheet-bg:#1F2547; --field-bg:#151A33;
+    --backdrop:rgba(8,10,24,.6);
+  }
+}
+
+/* ============ Osnova ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@supports (font: -apple-system-body){ html{ font: -apple-system-body; } }
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+body{
+  margin:0; font-family:'DM Sans',system-ui,sans-serif; font-size:1rem; line-height:1.55;
+  color:var(--text); background:var(--bg);
+  -webkit-tap-highlight-color:transparent;
+  padding-bottom:calc(var(--nav-space) + env(safe-area-inset-bottom));
+  overflow-wrap:break-word;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--line);outline-offset:3px;border-radius:12px}
+@media (prefers-color-scheme: dark){ :focus-visible{outline-color:#F3EEF8} }
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{width:100%;max-width:70rem;margin-inline:auto;padding-inline:var(--gutter)}
+
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:650;font-variation-settings:"SOFT" 100,"WONK" 1;line-height:1.08;letter-spacing:-.01em;margin:0;color:var(--text)}
+h1{font-size:min(clamp(2.5rem, 1.6rem + 4vw, 4.6rem), 14vw)}
+h2{font-size:min(clamp(1.9rem, 1.35rem + 2.6vw, 3.1rem), 11vw)}
+h3{font-size:min(1.35rem, 7vw);line-height:1.2}
+h1 em,h2 em{font-style:italic;font-weight:600;color:var(--accent)}
+p{margin:0}
+.lead{font-size:1.125rem;color:var(--text-soft);max-width:34rem}
+.muted{color:var(--text-soft)}
+.small{font-size:.875rem}
+
+/* ============ Ikonice i mašnica ============ */
+.ico{width:1.5rem;height:1.5rem;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bow{width:1.6em;height:1.6em;flex:none;overflow:visible}
+
+/* ============ Kovrdža ============ */
+.curl{fill:none;overflow:visible}
+.curl path{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1 2;stroke-dashoffset:0;transition:stroke-dashoffset 1.2s var(--ease)}
+.js .curl:not(.is-drawn) path{stroke-dashoffset:1.05}
+.curl--blue path{stroke:var(--curl-blue)} .curl--pink path{stroke:var(--curl-pink)}
+.divider{width:8.5rem;height:auto;margin:0 0 1rem}
+
+/* ============ Nalepnice ============ */
+.sticker{display:inline-flex;align-items:center;gap:.4em;padding:.3em .8em;border:2px solid var(--line);border-radius:999px;background:var(--fill-blue);color:var(--on-fill);font-weight:700;font-size:.8125rem;line-height:1.3;transform:rotate(var(--r,-2deg));max-width:100%}
+.sticker--pink{background:var(--fill-pink)}
+.sticker--cream{background:var(--bg);color:var(--text)}
+.stickers{display:flex;flex-wrap:wrap;gap:.6rem .5rem;padding:0;margin:0;list-style:none}
+
+/* ============ Dugmad ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;min-width:44px;padding:.7rem 1.35rem;border:2px solid var(--line);border-radius:999px;background:var(--btn-pink);color:var(--btn-text);font-weight:700;font-size:1rem;line-height:1.2;text-decoration:none;text-align:center;box-shadow:var(--shadow);transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
+.btn--blue{background:var(--btn-blue)}
+.btn--ghost{background:transparent;color:var(--text);box-shadow:none}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--line)}
+.btn--ghost:active{transform:translateY(1px)}
+.btn-row{display:flex;flex-wrap:wrap;gap:.75rem}
+.link{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;font-weight:700;color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.on-pink .link,.on-pink h2 em{color:var(--text)}
+
+/* ============ Kartice ============ */
+.card{position:relative;border:2px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow);background:var(--fill-blue-soft);transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
+a.card,button.card{display:block;text-decoration:none;color:inherit;text-align:left;font:inherit;width:100%}
+a.card:active,button.card:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--line)}
+
+/* ============ Ram za fotku ============ */
+.photo{position:relative;isolation:isolate}
+.photo::before{content:"";position:absolute;inset:0;z-index:-1;border:2px solid var(--line);border-radius:var(--radius-photo);background:var(--fill-blue);transform:translate(6px,6px) rotate(-3deg)}
+.photo--pink::before{background:var(--fill-pink)}
+.photo__frame{aspect-ratio:4/5;border:2px solid var(--line);border-radius:var(--radius-photo);background:var(--fill-pink-soft);display:grid;place-items:center;padding:1.5rem;text-align:center}
+.photo__frame--img{padding:0;display:block;background:var(--fill-blue-soft)}
+.photo__frame img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:calc(var(--radius-photo) - 2px)}
+
+/* ============ Sekcije i talasi ============ */
+.sec{position:relative;padding-block:4.5rem 4rem;background:var(--sec-bg,var(--bg));overflow-x:clip}
+.sec--cream{--sec-bg:var(--bg)} .sec--blue{--sec-bg:var(--bg-blue)} .sec--pink{--sec-bg:var(--bg-pink)}
+.sec--wave::before{content:"";position:absolute;left:0;right:0;top:-23px;height:24px;background:var(--sec-bg);pointer-events:none;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 24'%3E%3Cpath d='M0 12C10 0 30 0 40 12S70 24 80 12V24H0z'/%3E%3C/svg%3E") repeat-x 0 0/80px 24px;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 24'%3E%3Cpath d='M0 12C10 0 30 0 40 12S70 24 80 12V24H0z'/%3E%3C/svg%3E") repeat-x 0 0/80px 24px}
+.sec-head{display:grid;gap:.75rem;margin-bottom:2rem;max-width:40rem}
+section[id]{scroll-margin-top:1rem}
+
+/* ============ Gornji red ============ */
+.topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 1rem;min-height:4.5rem;padding-top:env(safe-area-inset-top)}
+.brand{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;font-family:'Fraunces',Georgia,serif;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:650;font-size:1.2rem;text-decoration:none}
+.brand .bow{width:1.9rem;height:1.9rem}
+.topbar .link{font-size:.9375rem}
+
+/* ============ Pill navigacija (tab bar) ============ */
+.tabbar{position:fixed;z-index:50;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);
+  width:min(calc(100% - 2 * max(12px, env(safe-area-inset-left))), 27rem);
+  display:flex;align-items:stretch;gap:.25rem;padding:.375rem;border-radius:999px;background:var(--nav-bg);color:var(--nav-text);
+  border:2px solid var(--line);box-shadow:var(--shadow);transition:transform .25s var(--ease),opacity .25s var(--ease)}
+.tabbar a,.tabbar button{flex:1 1 0;min-width:44px;min-height:3.25rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;padding:.3rem .25rem;border:0;border-radius:999px;background:transparent;color:inherit;text-decoration:none;font-size:min(.75rem, 15px);font-weight:500;line-height:1.15;text-align:center;opacity:.78}
+.tabbar .ico{width:1.4rem;height:1.4rem}
+.tabbar a[aria-current="true"]{opacity:1;background:var(--nav-active);font-weight:700}
+.tabbar .tab-cta{flex:1.25 1 0;opacity:1;background:var(--btn-pink);color:var(--btn-text);font-weight:700}
+.tabbar :focus-visible{outline-color:var(--nav-text);outline-offset:-4px}
+.tabbar a:active,.tabbar button:active{transform:scale(.96)}
+.sheet-open .tabbar{opacity:0;visibility:hidden;transform:translate(-50%,140%)}
+
+/* ============ Hero ============ */
+.hero{position:relative;min-height:100svh;padding-block:1.5rem 4rem;overflow:hidden}
+.hero__bgcurl{position:absolute;right:-9rem;bottom:2rem;width:34rem;max-width:none;opacity:.55;pointer-events:none}
+@media (prefers-color-scheme: dark){.hero__bgcurl{opacity:.4}}
+.hero__grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:3rem;align-items:center}
+.hero__text{display:grid;gap:1.25rem;justify-items:start}
+.underline{position:relative;display:inline-block;white-space:nowrap}
+.underline .curl{position:absolute;left:-2%;bottom:-.3em;width:104%;height:.42em}
+.hero__photo{width:min(100%, 24rem);justify-self:center;transform:rotate(2deg);margin-right:.5rem}
+.hero__photo .sticker{position:absolute;top:-.9rem;right:-.4rem;--r:6deg;z-index:2;font-size:.875rem}
+.hero__meta{display:flex;flex-wrap:wrap;align-items:center;column-gap:.6rem;font-size:.9375rem}
+.hero__meta .link{gap:.4rem}
+.hero__meta .dot{color:var(--text-soft);display:none}
+@media (min-width:600px){.hero__meta .dot{display:inline}}
+.nowrap{white-space:nowrap}
+.hero h1{padding-bottom:.18em}
+
+/* ============ Za tebe ============ */
+.fit-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem;padding:0;margin:0;list-style:none}
+.fit{padding:1.25rem 1.25rem 1.35rem;transform:rotate(var(--r));color:var(--on-fill);display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;font-weight:500;font-size:1.0625rem;line-height:1.4}
+.fit .bow{width:1.75rem;height:1.75rem;margin-top:.05rem}
+.fit:nth-child(1){--r:-1.5deg;background:var(--fill-pink)}
+.fit:nth-child(2){--r:1.2deg;background:var(--fill-blue)}
+.fit:nth-child(3){--r:-.8deg;background:var(--bg);color:var(--text)}
+.fit:nth-child(4){--r:1.8deg;background:var(--fill-pink)}
+
+/* ============ Planovi ============ */
+.plan-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.75rem}
+.plan{display:flex;flex-direction:column;gap:1rem;padding:1.5rem 1.35rem 1.4rem}
+.plan:nth-child(1){background:var(--fill-blue-soft)}
+.plan:nth-child(2){background:var(--fill-pink-soft)}
+.plan:nth-child(3){background:var(--fill-blue-soft)}
+.plan .sticker{align-self:flex-start}
+.plan p{color:var(--text-soft)}
+.bullets{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.bullets li{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start;font-weight:500}
+.bullets .bow{width:1.35rem;height:1.35rem;margin-top:.1rem}
+.plan .btn{margin-top:auto;align-self:stretch}
+.ph{display:inline-block;padding:0 .35em;border:2px dashed var(--line);border-radius:8px;font-weight:700;color:var(--text)}
+
+/* ============ Mitovi ============ */
+.myth-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem}
+.myth{width:100%;text-align:left;padding:0;border:0;background:none;box-shadow:none;perspective:900px;-webkit-perspective:900px;border-radius:var(--radius-card);transition:transform .12s var(--ease)}
+.myth:active{transform:translate(2px,2px)}
+.myth__inner{display:grid;grid-template-columns:minmax(0,1fr);transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .4s var(--ease)}
+.myth[aria-pressed="true"] .myth__inner{transform:rotateY(180deg)}
+.myth__face{grid-area:1/1;display:flex;flex-direction:column;gap:.75rem;min-height:11rem;padding:1.35rem;border:2px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow);background:var(--bg);color:var(--text);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.myth__back{transform:rotateY(180deg);background:var(--fill-blue-soft)}
+.myth__q{overflow-wrap:anywhere;hyphens:auto;font-family:'Fraunces',Georgia,serif;font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:600;font-size:min(1.3rem, 6.6vw);line-height:1.25}
+.myth__hint{margin-top:auto;display:inline-flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.875rem;font-weight:700;color:var(--text-soft)}
+.verdict{display:inline-flex;align-self:flex-start;align-items:center;gap:.35rem;padding:.25rem .75rem .25rem .5rem;border:2px solid var(--line);border-radius:999px;font-weight:700;letter-spacing:.06em;font-size:.875rem;color:var(--on-fill);background:var(--fill-pink);transform:rotate(-3deg)}
+.verdict--true{background:var(--fill-blue)}
+.verdict .ico{width:1.1rem;height:1.1rem;stroke-width:2.6}
+.myth__back .myth__mini{font-size:.875rem;color:var(--text-soft);font-weight:500}
+.myth__back p:last-child{font-weight:500;font-size:1.0625rem;line-height:1.45}
+.myths-more{margin-top:1.5rem}
+
+/* ============ YouTube ============ */
+.yt-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem}
+.yt{display:grid!important;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;overflow:hidden;background:var(--bg)!important}
+.yt__thumb{position:relative;display:block;aspect-ratio:16/9;border-bottom:2px solid var(--line);background:var(--fill-pink);overflow:hidden}
+.yt__thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.yt:nth-child(2) .yt__thumb{background:var(--fill-blue)}
+.yt__play{position:absolute;right:.75rem;bottom:.75rem;width:3rem;height:3rem;border-radius:50%;border:2px solid var(--line);background:var(--bg);display:grid;place-items:center;box-shadow:3px 3px 0 var(--line);color:var(--text)}
+.yt__play svg{width:1.4rem;height:1.4rem;fill:currentColor;stroke:none;margin-left:3px}
+.yt__body{display:flex;flex-direction:column;gap:.7rem;padding:1.15rem 1.25rem 1.3rem}
+.yt__body h3{font-size:min(1.15rem, 6.6vw);overflow-wrap:anywhere}
+.yt__go{flex-wrap:wrap;margin-top:auto;font-weight:700;font-size:.9375rem;color:var(--accent);display:inline-flex;gap:.3rem;align-items:center}
+
+/* ============ O meni ============ */
+.about{display:grid;grid-template-columns:minmax(0,1fr);gap:3rem;align-items:start}
+.about__photo{width:min(100%,22rem);justify-self:center;transform:rotate(-2deg)}
+.about__text{display:grid;gap:1.25rem}
+.about__text > p{font-size:1.125rem}
+.quotes{padding:1.35rem;border:2px dashed var(--line);border-radius:var(--radius-card);display:grid;gap:.5rem;background:transparent}
+.quotes h3{font-size:1.2rem}
+
+/* ============ GymBeam ============ */
+.promo{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;padding:1.35rem;background:var(--bg)}
+.promo__row{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem}
+.code{display:inline-flex;align-items:center;min-height:3rem;padding:.5rem 1rem;border:2px dashed var(--line);border-radius:14px;font-weight:700;font-size:1.125rem;letter-spacing:.04em;background:var(--fill-pink-soft);max-width:100%;overflow-wrap:anywhere;-webkit-user-select:all;user-select:all}
+
+/* ============ Završni poziv ============ */
+.cta{text-align:center;display:grid;justify-items:center;gap:1.25rem}
+.cta .btn-row{justify-content:center}
+.cta .bow{width:3rem;height:3rem}
+
+/* ============ Footer ============ */
+.foot{padding-block:1.5rem 1rem;font-size:.875rem;color:var(--text-soft)}
+.foot .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1rem}
+.foot nav{display:flex;flex-wrap:wrap;align-items:center;gap:0 .5rem}
+.foot a{display:inline-flex;align-items:center;min-height:44px;padding-inline:.15rem;color:var(--text);font-weight:500}
+.foot .sticker{font-size:.75rem;--r:-3deg}
+
+/* ============ Toast ============ */
+.toast{position:fixed;z-index:60;left:50%;bottom:calc(var(--nav-space) + env(safe-area-inset-bottom) + .5rem);transform:translate(-50%,1rem);opacity:0;pointer-events:none;
+  display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border:2px solid var(--line);border-radius:999px;background:var(--fill-blue);color:var(--on-fill);font-weight:700;box-shadow:var(--shadow);transition:opacity .2s,transform .2s var(--ease);max-width:calc(100% - 2rem)}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+/* ============ Bottom sheet (prijava) ============ */
+.sheet{position:fixed;inset:auto 0 var(--kb,0px) 0;margin:0;width:100%;max-width:100%;height:auto;
+  max-height:calc(var(--vvh,100dvh) - max(env(safe-area-inset-top), 12px) - 12px);
+  padding:0;border:2px solid var(--line);border-bottom:0;border-radius:28px 28px 0 0;background:var(--sheet-bg);color:var(--text);
+  overflow:hidden;transform:translateY(105%);transition:transform .3s var(--ease)}
+.sheet[open]{display:flex;flex-direction:column}
+.sheet.is-open{transform:none}
+.sheet::backdrop{background:rgba(29,34,69,.45);animation:fade .3s ease}
+@media (prefers-color-scheme: dark){ .sheet::backdrop{background:rgba(8,10,24,.6)} }
+@keyframes fade{from{opacity:0}}
+.sheet__grab{flex:none;width:2.5rem;height:5px;border-radius:5px;background:var(--text-soft);opacity:.5;margin:.5rem auto 0}
+.sheet__head{flex:none;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.5rem;padding:.25rem .5rem .5rem;border-bottom:2px solid var(--line)}
+.sheet__head h2:focus{outline:none}
+.sheet__head h2{font-family:'DM Sans',system-ui,sans-serif;font-size:min(1.0625rem, 19px);font-weight:700;letter-spacing:0;text-align:center}
+.sheet__cancel{justify-self:start;min-height:44px;min-width:44px;padding:min(.5rem,8px) min(.75rem,12px);border:0;background:none;color:var(--accent);font-weight:500;font-size:min(1.0625rem, 19px);border-radius:12px}
+.view{display:flex;flex-direction:column;min-height:0;flex:1 1 auto}
+.view[hidden]{display:none}
+.sheet__scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:1.25rem max(1.25rem, env(safe-area-inset-left)) 1.5rem}
+.sheet__foot{flex:none;padding:.75rem max(1.25rem, env(safe-area-inset-left)) calc(.75rem + env(safe-area-inset-bottom));border-top:2px solid var(--line);background:var(--sheet-bg)}
+.sheet__foot .btn{width:100%}
+.form{display:grid;gap:1.6rem}
+.field{display:grid;gap:.5rem;border:0;margin:0;padding:0;min-width:0}
+.field legend,.field label{padding:0;font-weight:700;font-size:1rem}
+.field legend{margin-bottom:.6rem}
+.field .opt{font-weight:400;color:var(--text-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{position:relative;display:inline-flex}
+.chip input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;padding:.5rem 1rem;border:2px solid var(--line);border-radius:999px;background:var(--field-bg);font-weight:500;line-height:1.2;transition:background .15s,transform .12s}
+.chip .ico{width:1.1rem;height:1.1rem;stroke-width:2.6;display:none}
+.chip input:checked + span{background:var(--fill-pink);color:var(--on-fill);font-weight:700;box-shadow:2px 2px 0 var(--line)}
+.chip input:checked + span .ico{display:block}
+.chip input:focus-visible + span{outline:2px solid var(--text);outline-offset:3px}
+.chip input:active + span{transform:translate(1px,1px)}
+.input{width:100%;min-height:3rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--field-bg);font-size:max(16px,1rem);line-height:1.4;-webkit-appearance:none;appearance:none}
+textarea.input{resize:vertical;min-height:6.5rem}
+.input::placeholder{color:var(--text-soft);opacity:1}
+.input:focus{outline:none;border-color:var(--text);box-shadow:0 0 0 3px var(--fill-blue)}
+.input[aria-invalid="true"]{border-width:3px;border-style:dashed;border-color:var(--text)}
+.err{display:flex;gap:.4rem;align-items:flex-start;font-weight:700;font-size:.9375rem;color:var(--text)}
+.err[hidden]{display:none}
+.err .ico{width:1.25rem;height:1.25rem;margin-top:.05rem}
+.success{display:grid;gap:1.1rem;justify-items:start}
+.success .bow{width:3.25rem;height:3.25rem}
+.success h3{font-size:1.6rem}
+.success h3:focus{outline:none}
+.summary{width:100%;margin:0;padding:1rem 1.1rem;border:2px solid var(--line);border-radius:18px;background:var(--fill-blue-soft);display:grid;gap:.4rem}
+.summary div{display:grid;grid-template-columns:minmax(4.5rem,auto) 1fr;gap:.75rem}
+.summary dt{font-weight:700} .summary dd{margin:0}
+.msg-label{font-weight:700}
+.msg{min-height:8rem;font-size:max(16px,1rem)}
+.linkbtn{min-height:44px;padding:0 .25rem;border:0;background:none;font-weight:700;color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.linkbtn--soft{color:var(--text-soft);font-weight:500}
+.status{min-height:1.5em;font-weight:700;font-size:.9375rem}
+.success-actions{display:flex;flex-wrap:wrap;gap:.25rem 1rem}
+
+/* ============ Desktop ============ */
+@media (min-width: 600px){
+  .fit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .myth-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .yt-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width: 900px){
+  body{padding-bottom:0}
+  .tabbar{position:sticky;top:.9rem;bottom:auto;left:auto;transform:none;margin:-4.1rem auto 0;width:max-content;max-width:calc(100% - 22rem);gap:.25rem}
+  .tabbar a,.tabbar button{flex:0 0 auto;flex-direction:row;gap:.45rem;min-height:2.9rem;padding:.4rem 1.1rem;font-size:.9375rem}
+  .tabbar .ico{width:1.2rem;height:1.2rem}
+  .sheet-open .tabbar{transform:translateY(-140%)}
+  section[id]{scroll-margin-top:5.5rem}
+  .toast{bottom:2rem}
+  .hero{min-height:calc(100svh - 4.5rem);display:grid;align-items:center;padding-block:4rem}
+  .hero__grid{grid-template-columns:1.15fr .85fr;gap:4rem}
+  .hero__bgcurl{right:-4rem;top:auto;bottom:2rem;width:46rem}
+  .plan-grid{grid-template-columns:repeat(3,1fr)}
+  .about{grid-template-columns:.8fr 1.2fr;gap:4.5rem;align-items:center}
+  .sec{padding-block:6rem 5.5rem}
+  .promo{grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:1.5rem 2rem}
+  .sheet{inset:0;margin:auto;width:30rem;max-width:calc(100% - 3rem);max-height:min(48rem, calc(100dvh - 3rem));border-bottom:2px solid var(--line);border-radius:28px;box-shadow:6px 6px 0 var(--line);transform:translateY(1.5rem);opacity:0;transition:transform .3s var(--ease),opacity .3s var(--ease)}
+  .sheet.is-open{transform:none;opacity:1}
+  .sheet__grab{display:none}
+  .sheet__head{padding-top:.5rem}
+  .sheet__foot{padding-bottom:1rem}
+}
+@media (min-width: 1100px){ .fit-grid{grid-template-columns:repeat(4,1fr)} }
+
+/* ============ Smanjen pokret ============ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}
+  .js .curl:not(.is-drawn) path{stroke-dashoffset:0}
+  .myth__inner{transform:none!important}
+  .myth__face{backface-visibility:visible;-webkit-backface-visibility:visible}
+  .myth__back{transform:none;visibility:hidden}
+  .myth[aria-pressed="true"] .myth__front{visibility:hidden}
+  .myth[aria-pressed="true"] .myth__back{visibility:visible}
+}
+</style>
+</head>
+<body>
+<!-- Ikonice i mašnica (crtano ručno, ništa se ne skida) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="bow" viewBox="0 0 24 24">
+    <g style="stroke:var(--line-solid,var(--text));stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round">
+      <path d="M11 13.2 7.6 21l2.6-1.2 1.2 2.2L13 13.2z" style="fill:var(--bow-tail)"/>
+      <path d="M13 13.2 16.4 21l-2.6-1.2-1.2 2.2L11 13.2z" style="fill:var(--bow-tail)"/>
+      <path d="M12 11.5C9 6 2 4.5 2.2 10.3c.2 5 6.4 4.7 9.8 1.2z" style="fill:var(--bow-fill)"/>
+      <path d="M12 11.5C15 6 22 4.5 21.8 10.3c-.2 5-6.4 4.7-9.8 1.2z" style="fill:var(--bow-fill)"/>
+      <path d="M5.2 9.2c1.4-.9 3.3-.2 4.6 1.2M18.8 9.2c-1.4-.9-3.3-.2-4.6 1.2" style="fill:none;stroke-width:1.1"/>
+      <circle cx="12" cy="11.6" r="2.4" style="fill:var(--bow-knot)"/>
+    </g>
+  </symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 10.8 12 4l8.5 6.8"/><path d="M5.5 9.5V19a1 1 0 0 0 1 1h3.8v-5.5h3.4V20h3.8a1 1 0 0 0 1-1V9.5"/></symbol>
+  <symbol id="i-plans" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 4.5V3.2h6v1.3M8.8 10h6.4M8.8 13.5h6.4M8.8 17h3.4"/></symbol>
+  <symbol id="i-me" viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="3.8"/><path d="M4.5 20.5c1.4-3.8 4.2-5.7 7.5-5.7s6.1 1.9 7.5 5.7"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4.2L19.3 8.9a2.1 2.1 0 0 0 0-3L18.1 4.7a2.1 2.1 0 0 0-3 0L4 15.8z"/><path d="M13.5 6.3l4.2 4.2"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6.5 18.5 12 13 17.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 9.8 17 19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.6v.1"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11.5" height="11.5" rx="3"/><path d="M15.5 8.5V6.8A2.8 2.8 0 0 0 12.7 4H6.8A2.8 2.8 0 0 0 4 6.8v5.9a2.8 2.8 0 0 0 2.8 2.8h1.7"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.8l1.4-2h4.6l1.4 2h1.8A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="12.8" r="3.6"/></symbol>
+  <symbol id="i-tap" viewBox="0 0 24 24"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.6-2.2L4.5 15.8a1.5 1.5 0 0 1 2.2-2L9 15.5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.8v14.4L19 12z"/></symbol>
+</svg>
+
+<header class="wrap topbar">
+  <a class="brand" href="#pocetna"><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Čupavi trener</a>
+  <a class="link" href="https://www.instagram.com/cupavavanja/" target="_blank" rel="noopener">@cupavavanja</a>
+</header>
+
+<nav class="tabbar" aria-label="Glavna navigacija">
+  <a href="#pocetna" data-nav="pocetna" aria-current="true"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg><span>Početna</span></a>
+  <a href="#planovi" data-nav="planovi"><svg class="ico" aria-hidden="true"><use href="#i-plans"/></svg><span>Planovi</span></a>
+  <a href="#o-meni" data-nav="o-meni"><svg class="ico" aria-hidden="true"><use href="#i-me"/></svg><span>O meni</span></a>
+  <button type="button" class="tab-cta" data-open-sheet aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-pen"/></svg><span>Prijavi se</span></button>
+</nav>
+
+<main>
+  <!-- 1. HERO -->
+  <section id="pocetna" class="hero sec--cream" data-nav="pocetna">
+    <svg class="curl curl--blue hero__bgcurl" viewBox="0 40 494 120" aria-hidden="true"><path pathLength="1" d="M4 150 C49.5 150 68.4 110 47.4 110 C29.2 110 33.4 150 74 150 C132.5 150 156.8 80 129.8 80 C106.4 80 111.8 150 164 150 C235.5 150 265.2 50 232.2 50 C203.6 50 210.2 150 274 150 C332.5 150 356.8 80 329.8 80 C306.4 80 311.8 150 364 150 C409.5 150 428.4 106 407.4 106 C389.2 106 393.4 150 434 150 C470.4 150 485.5 120 468.7 120 C454.2 120 457.5 150 490 150"/></svg>
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <span class="sticker sticker--pink" style="--r:-3deg">personalni trener · content creator</span>
+        <h1>Čupavo je – ali <span class="underline"><em>nisi sama</em><svg class="curl curl--pink" viewBox="0 0 298 32" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 26 C28 26 38.8 6 26.8 6 C16.4 6 18.8 26 42 26 C68 26 78.8 6 66.8 6 C56.4 6 58.8 26 82 26 C108 26 118.8 6 106.8 6 C96.4 6 98.8 26 122 26 C148 26 158.8 6 146.8 6 C136.4 6 138.8 26 162 26 C188 26 198.8 6 186.8 6 C176.4 6 178.8 26 202 26 C228 26 238.8 6 226.8 6 C216.4 6 218.8 26 242 26 C268 26 278.8 6 266.8 6 C256.4 6 258.8 26 282 26 L296 26"/></svg></span>.</h1>
+        <p class="lead">Trening za devojke koje žele snagu, samopouzdanje i zdrav odnos prema sebi. Bez filtera i bez srama, korak po korak.</p>
+        <div class="btn-row">
+          <button type="button" class="btn" data-open-sheet aria-haspopup="dialog">Treniraj sa mnom</button>
+          <a class="btn btn--ghost" href="#planovi">Pogledaj planove</a>
+        </div>
+        <p class="hero__meta">
+          <a class="link" href="https://www.instagram.com/cupavavanja/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>21K prati na Instagramu</a>
+          <span class="dot" aria-hidden="true">·</span>
+          <a class="link" href="https://www.youtube.com/@Cupavitrener" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>Čupavo je na YouTube-u</a>
+        </p>
+      </div>
+      <figure class="photo hero__photo" style="margin:0">
+        <span class="sticker">real talk</span>
+        <!-- FOTKA: sa njenog Instagrama, karusel „Gym outfits“ (instagram.com/p/DdVwDEPilcs/), isečeno na 4:5. Zameni ako Vanja pošalje drugu. -->
+        <div class="photo__frame photo__frame--img">
+          <img src="img/vanja-hero-900.webp" srcset="img/vanja-hero-600.webp 600w, img/vanja-hero-900.webp 900w, img/vanja-hero-1200.webp 1200w" sizes="(min-width: 900px) 24rem, min(24rem, calc(100vw - 2.5rem))" width="900" height="1125" fetchpriority="high" decoding="async" alt="Čupavi trener u teretani, u rozoj jakni, smeje se sa rukama u kovrdžavoj kosi">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2. ZA TEBE -->
+  <section id="za-tebe" class="sec sec--wave sec--blue" data-nav="pocetna" aria-labelledby="za-tebe-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <svg class="curl curl--pink divider" viewBox="0 0 138 30" aria-hidden="true"><path pathLength="1" d="M2 24 C21.5 24 29.6 8 20.6 8 C12.8 8 14.6 24 32 24 C51.5 24 59.6 8 50.6 8 C42.8 8 44.6 24 62 24 C81.5 24 89.6 8 80.6 8 C72.8 8 74.6 24 92 24 C111.5 24 119.6 8 110.6 8 C102.8 8 104.6 24 122 24 L136 24"/></svg>
+        <h2 id="za-tebe-h">Za <em>tebe</em> je ako…</h2>
+      </div>
+      <ul class="fit-grid">
+        <li class="card fit"><svg class="bow" aria-hidden="true"><use href="#bow"/></svg><span>Plašiš se teretane i ne znaš odakle da kreneš.</span></li>
+        <li class="card fit"><svg class="bow" aria-hidden="true"><use href="#bow"/></svg><span>Misliš da ćeš se od tegova nabildovati.</span></li>
+        <li class="card fit"><svg class="bow" aria-hidden="true"><use href="#bow"/></svg><span>Hoćeš da jedeš normalno, bez griže savesti.</span></li>
+        <li class="card fit"><svg class="bow" aria-hidden="true"><use href="#bow"/></svg><span>Treba ti neko ko će ti reći realno, kao starija sestra.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. PLANOVI -->
+  <section id="planovi" class="sec sec--wave sec--cream" data-nav="planovi" aria-labelledby="planovi-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <svg class="curl curl--blue divider" viewBox="0 0 138 30" aria-hidden="true"><path pathLength="1" d="M2 24 C21.5 24 29.6 8 20.6 8 C12.8 8 14.6 24 32 24 C51.5 24 59.6 8 50.6 8 C42.8 8 44.6 24 62 24 C81.5 24 89.6 8 80.6 8 C72.8 8 74.6 24 92 24 C111.5 24 119.6 8 110.6 8 C102.8 8 104.6 24 122 24 L136 24"/></svg>
+        <h2 id="planovi-h">Kako možemo da radimo <em>zajedno</em></h2>
+        <p class="lead">Cenu ti kažem u poruci, kad vidim šta ti treba.</p><!-- NACRT: Vanja odobrava -->
+      </div>
+      <!-- NACRT: Vanja odobrava (nalepnice „online“, „uživo“, „za početnice“) -->
+      <div class="plan-grid">
+        <!-- POTVRDI SA VANJOM -->
+        <!-- NACRT: Vanja odobrava -->
+        <article class="card plan">
+          <span class="sticker" style="--r:-3deg">online</span>
+          <h3>Online plan</h3>
+          <p>Treniraš gde ti odgovara, a ja sam ti u telefonu.</p>
+          <ul class="bullets">
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Plan treninga prilagođen tebi</li>
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Praćenje napretka</li>
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Dopisivanje kad zapne</li>
+          </ul>
+          <button type="button" class="btn" data-open-sheet data-plan="Online plan" aria-haspopup="dialog">Pitaj za cenu</button>
+        </article>
+        <!-- POTVRDI SA VANJOM -->
+        <!-- NACRT: Vanja odobrava -->
+        <article class="card plan">
+          <span class="sticker sticker--pink" style="--r:2deg">uživo</span>
+          <h3>Uživo, 1 na 1</h3>
+          <p>Treniramo zajedno u teretani: <span class="ph">[lokacija]</span>.</p>
+          <ul class="bullets">
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Tehnika uz mene, korak po korak</li>
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Plan koji raste sa tobom</li>
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Teretana prestaje da bude strašna</li>
+          </ul>
+          <button type="button" class="btn" data-open-sheet data-plan="Uživo 1 na 1" aria-haspopup="dialog">Pitaj za cenu</button>
+        </article>
+        <!-- POTVRDI SA VANJOM -->
+        <!-- NACRT: Vanja odobrava -->
+        <article class="card plan">
+          <span class="sticker" style="--r:-2deg">za početnice</span>
+          <h3>Kreni od nule</h3>
+          <p>Za tebe ako nikad nisi trenirala.</p>
+          <ul class="bullets">
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Osnove i prve vežbe</li>
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Tehnika pre težine</li>
+            <li><svg class="bow" aria-hidden="true"><use href="#bow"/></svg>Sigurnost u teretani</li>
+          </ul>
+          <button type="button" class="btn" data-open-sheet data-plan="Kreni od nule" aria-haspopup="dialog">Pitaj za cenu</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MIT ILI ISTINA -->
+  <section id="mitovi" class="sec sec--wave sec--pink on-pink" data-nav="planovi" aria-labelledby="mitovi-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <svg class="curl curl--blue divider" viewBox="0 0 138 30" aria-hidden="true"><path pathLength="1" d="M2 24 C21.5 24 29.6 8 20.6 8 C12.8 8 14.6 24 32 24 C51.5 24 59.6 8 50.6 8 C42.8 8 44.6 24 62 24 C81.5 24 89.6 8 80.6 8 C72.8 8 74.6 24 92 24 C111.5 24 119.6 8 110.6 8 C102.8 8 104.6 24 122 24 L136 24"/></svg>
+        <h2 id="mitovi-h">Mit ili <em>istina</em>?</h2>
+        <p class="lead">Tapni karticu.</p>
+      </div>
+      <!-- NACRT: Vanja odobrava (svi odgovori i hint „Mit ili istina?“) -->
+      <div class="myth-grid">
+        <button type="button" class="myth" aria-pressed="false">
+          <span class="myth__inner">
+            <span class="myth__face myth__front"><span class="myth__q">„Od tegova ću se nabildovati.“</span><span class="myth__hint"><svg class="ico" aria-hidden="true"><use href="#i-tap"/></svg>Mit ili istina?</span></span>
+            <span class="myth__face myth__back" aria-hidden="true"><span class="verdict"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>MIT</span><span class="myth__mini">„Od tegova ću se nabildovati.“</span><p>Mišiće gradiš godinama, ne slučajno. Tegovi te čine jačom i čvršćom.</p></span>
+          </span>
+        </button>
+        <button type="button" class="myth" aria-pressed="false">
+          <span class="myth__inner">
+            <span class="myth__face myth__front"><span class="myth__q">„Moram da gladujem da bih videla rezultat.“</span><span class="myth__hint"><svg class="ico" aria-hidden="true"><use href="#i-tap"/></svg>Mit ili istina?</span></span>
+            <span class="myth__face myth__back" aria-hidden="true"><span class="verdict"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>MIT</span><span class="myth__mini">„Moram da gladujem da bih videla rezultat.“</span><p>Gladovanje ti uzme energiju za trening. Jedeš da bi napredovala.</p></span>
+          </span>
+        </button>
+        <button type="button" class="myth" aria-pressed="false">
+          <span class="myth__inner">
+            <span class="myth__face myth__front"><span class="myth__q">„Normalno je da mi je na početku neprijatno u teretani.“</span><span class="myth__hint"><svg class="ico" aria-hidden="true"><use href="#i-tap"/></svg>Mit ili istina?</span></span>
+            <span class="myth__face myth__back" aria-hidden="true"><span class="verdict verdict--true"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>ISTINA</span><span class="myth__mini">„Normalno je da mi je na početku neprijatno u teretani.“</span><p>Skoro svima je. Kad imaš plan, znaš šta radiš i to brzo prolazi.</p></span>
+          </span>
+        </button>
+        <button type="button" class="myth" aria-pressed="false">
+          <span class="myth__inner">
+            <span class="myth__face myth__front"><span class="myth__q">„Samo kardio topi masti.“</span><span class="myth__hint"><svg class="ico" aria-hidden="true"><use href="#i-tap"/></svg>Mit ili istina?</span></span>
+            <span class="myth__face myth__back" aria-hidden="true"><span class="verdict"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>MIT</span><span class="myth__mini">„Samo kardio topi masti.“</span><p>Snaga, kretanje i ishrana zajedno. Kardio je deo priče, ne cela priča.</p></span>
+          </span>
+        </button>
+      </div>
+      <p class="myths-more"><a class="link" href="https://www.youtube.com/watch?v=UUY21O0BhEs" target="_blank" rel="noopener">Još mitova u serijalu Čupavo je <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+    </div>
+  </section>
+
+  <!-- 5. YOUTUBE -->
+  <section id="youtube" class="sec sec--wave sec--blue" data-nav="planovi" aria-labelledby="youtube-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <svg class="curl curl--pink divider" viewBox="0 0 138 30" aria-hidden="true"><path pathLength="1" d="M2 24 C21.5 24 29.6 8 20.6 8 C12.8 8 14.6 24 32 24 C51.5 24 59.6 8 50.6 8 C42.8 8 44.6 24 62 24 C81.5 24 89.6 8 80.6 8 C72.8 8 74.6 24 92 24 C111.5 24 119.6 8 110.6 8 C102.8 8 104.6 24 122 24 L136 24"/></svg>
+        <h2 id="youtube-h"><em>Čupavo je</em> na <span class="nowrap">YouTube-u</span></h2>
+        <p class="lead">Real talk o treningu, hrani i glavi. Bez filtera.</p><!-- NACRT: Vanja odobrava -->
+      </div>
+      <!-- Thumbnailovi su njeni originalni YouTube thumbnailovi (i.ytimg.com), sačuvani kao WebP u img/ -->
+      <!-- NACRT: Vanja odobrava (oznake na karticama; POTVRDI kom serijalu pripadaju prva dva videa) -->
+      <div class="yt-grid">
+        <a class="card yt" href="https://www.youtube.com/watch?v=OjsLJcbjItw" target="_blank" rel="noopener">
+          <span class="yt__thumb" aria-hidden="true">
+            <img src="img/yt-godiste-480.webp" srcset="img/yt-godiste-480.webp 480w, img/yt-godiste-960.webp 960w" sizes="(min-width: 600px) 22rem, calc(100vw - 2.5rem)" width="960" height="540" loading="lazy" decoding="async" alt="">
+            <span class="yt__play"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span>
+          </span>
+          <span class="yt__body">
+            <span class="sticker sticker--cream" style="--r:-2deg;align-self:flex-start">trening + Q&amp;A</span>
+            <h3>Koje sam godište? | Trening nogu + Q&amp;A</h3>
+            <span class="yt__go">Gledaj na YouTube-u <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="card yt" href="https://www.youtube.com/watch?v=PIl8iKQ_OOw" target="_blank" rel="noopener">
+          <span class="yt__thumb" aria-hidden="true">
+            <img src="img/yt-sta-jedem-480.webp" srcset="img/yt-sta-jedem-480.webp 480w, img/yt-sta-jedem-960.webp 960w" sizes="(min-width: 600px) 22rem, calc(100vw - 2.5rem)" width="960" height="540" loading="lazy" decoding="async" alt="">
+            <span class="yt__play"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span>
+          </span>
+          <span class="yt__body">
+            <span class="sticker sticker--cream" style="--r:2deg;align-self:flex-start">ishrana</span>
+            <h3>Šta jedem u toku dana | Balans, kalorije &amp; uživanje bez griže savesti</h3>
+            <span class="yt__go">Gledaj na YouTube-u <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="card yt" href="https://www.youtube.com/watch?v=qYF2NSVDmi4" target="_blank" rel="noopener">
+          <span class="yt__thumb" aria-hidden="true">
+            <img src="img/yt-anksioznost-480.webp" srcset="img/yt-anksioznost-480.webp 480w, img/yt-anksioznost-960.webp 960w" sizes="(min-width: 600px) 22rem, calc(100vw - 2.5rem)" width="960" height="540" loading="lazy" decoding="async" alt="">
+            <span class="yt__play"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span>
+          </span>
+          <span class="yt__body">
+            <span class="sticker sticker--cream" style="--r:-1.5deg;align-self:flex-start">serijal: Čupavo je</span>
+            <h3>Anksioznost u teretani? – Gym Girl mindset | Čupavo je</h3>
+            <span class="yt__go">Gledaj na YouTube-u <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. O MENI -->
+  <section id="o-meni" class="sec sec--wave sec--cream" data-nav="o-meni" aria-labelledby="o-meni-h">
+    <div class="wrap about">
+      <figure class="photo photo--pink about__photo" style="margin:0">
+        <!-- FOTKA: sa njenog Instagrama, karusel „Gym outfits“ (instagram.com/p/DdVwDEPilcs/), isečeno na 4:5. Zameni ako Vanja pošalje drugu. -->
+        <div class="photo__frame photo__frame--img">
+          <!-- POTVRDI IME (alt tekst) -->
+          <img src="img/vanja-o-meni-900.webp" srcset="img/vanja-o-meni-600.webp 600w, img/vanja-o-meni-900.webp 900w, img/vanja-o-meni-1200.webp 1200w" sizes="(min-width: 900px) 22rem, min(22rem, calc(100vw - 2.5rem))" width="900" height="1125" loading="lazy" decoding="async" alt="Vanja sa slušalicama u teretani, namiguje i pokazuje na svoju majicu „gym baby“">
+        </div>
+      </figure>
+      <div class="about__text">
+        <span class="sticker sticker--pink" style="--r:-2deg;justify-self:start">o meni</span>
+        <!-- POTVRDI IME -->
+        <h2 id="o-meni-h">Ćao, ja sam <em>Vanja</em>.</h2>
+        <p>Snalazim se u životu, baš kao i ti, jer uputstva ne postoje. Zajedno učimo kako život funkcioniše. Verujem da fitnes nije samo izgled, nego snaga, samopouzdanje i zdrav odnos prema sebi.</p>
+        <ul class="stickers" aria-label="Interesovanja">
+          <li class="sticker" style="--r:-3deg">Hyrox</li>
+          <li class="sticker sticker--pink" style="--r:2deg">pole dance</li>
+          <li class="sticker sticker--cream" style="--r:-1deg">teretana</li>
+          <li class="sticker" style="--r:3deg">anime</li>
+          <li class="sticker sticker--pink" style="--r:-2deg">filozofija</li>
+          <li class="sticker sticker--cream" style="--r:1.5deg">bez filtera</li>
+        </ul>
+        <div class="quotes">
+          <h3>Utisci</h3>
+          <p class="muted">Ovde idu utisci tvojih klijentkinja (iz highlighta Klijentii).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. GYMBEAM -->
+  <section id="gymbeam" class="sec sec--wave sec--pink on-pink" data-nav="o-meni" aria-labelledby="gymbeam-h">
+    <div class="wrap">
+      <div class="card promo">
+        <div>
+          <h2 id="gymbeam-h" style="font-size:min(1.5rem,9vw)">Kod za popust na <span class="nowrap">GymBeam-u</span>: <span class="vh">cupavitrener5</span></h2>
+          <p class="small muted" style="margin-top:.35rem">kod iz Instagram bioa</p>
+        </div>
+        <div class="promo__row">
+          <span class="code" id="gb-code" aria-hidden="true">cupavitrener5</span>
+          <button type="button" class="btn btn--blue" id="gb-copy"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg>Kopiraj<span class="vh"> kod cupavitrener5</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ZAVRŠNI POZIV -->
+  <section id="javi-se" class="sec sec--wave sec--cream" data-nav="o-meni" aria-labelledby="cta-h">
+    <div class="wrap cta">
+      <svg class="bow" aria-hidden="true"><use href="#bow"/></svg>
+      <h2 id="cta-h"><em>Spremna?</em> Javi mi se.</h2>
+      <div class="btn-row">
+        <button type="button" class="btn" data-open-sheet aria-haspopup="dialog">Treniraj sa mnom</button>
+        <a class="btn btn--ghost" href="https://ig.me/m/cupavavanja"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Piši mi na Instagramu</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 9. FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Društvene mreže">
+      <span>© 2026 Čupavi trener</span><span aria-hidden="true">·</span>
+      <a href="https://www.instagram.com/cupavavanja/" target="_blank" rel="noopener">Instagram</a><span aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@Cupavitrener" target="_blank" rel="noopener">YouTube</a>
+    </nav>
+    <span class="sticker sticker--cream">Demo verzija</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- PRIJAVA: bottom sheet -->
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <div class="sheet__grab" aria-hidden="true"></div>
+  <div class="sheet__head">
+    <button type="button" class="sheet__cancel" data-close>Odustani</button>
+    <h2 id="sheet-title" tabindex="-1">Prijava</h2>
+    <span></span>
+  </div>
+
+  <!--
+    Forma trenutno NE šalje ništa na server: poruka se sklapa u browseru i šalje se Vanji u Instagram DM.
+    Kasnije se ovde može povezati prava forma (npr. Formspree): dodaj action="https://formspree.io/f/XXXX" method="POST"
+    i u submit handleru (JS, funkcija onSubmit) pošalji FormData preko fetch() pre prikaza ekrana uspeha.
+  -->
+  <!-- NACRT: Vanja odobrava (sitni tekstovi u prijavi: „(može više)“, „(nije obavezno)“, „Tvoja poruka“, „Izmeni prijavu“, poruke o kopiranju u JS-u) -->
+  <form class="view" id="form-view" novalidate>
+    <div class="sheet__scroll">
+      <div class="form">
+        <fieldset class="field" role="radiogroup" aria-labelledby="lg-plan">
+          <legend id="lg-plan">Šta te zanima?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="plan" value="Online plan"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Online plan</span></label>
+            <label class="chip"><input type="radio" name="plan" value="Uživo 1 na 1"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Uživo 1 na 1</span></label>
+            <label class="chip"><input type="radio" name="plan" value="Kreni od nule"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Kreni od nule</span></label>
+            <label class="chip"><input type="radio" name="plan" value="Ne znam još"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Ne znam još</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Tvoj cilj <span class="opt">(može više)</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="cilj" value="snaga"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Snaga</span></label>
+            <label class="chip"><input type="checkbox" name="cilj" value="samopouzdanje"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Samopouzdanje</span></label>
+            <label class="chip"><input type="checkbox" name="cilj" value="forma"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Forma</span></label>
+            <label class="chip"><input type="checkbox" name="cilj" value="Hyrox"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Hyrox</span></label>
+            <label class="chip"><input type="checkbox" name="cilj" value="krećem od nule"><span><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Krećem od nule</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-ime">Ime</label>
+          <input class="input" id="f-ime" name="ime" type="text" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" required aria-required="true">
+          <!-- NACRT: Vanja odobrava -->
+          <p class="err" id="err-ime" hidden><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg><span>Napiši ime da znam kako da ti se obratim.</span></p>
+        </div>
+        <div class="field">
+          <label for="f-kontakt">Kako da ti se javim?</label>
+          <input class="input" id="f-kontakt" name="kontakt" type="text" placeholder="@tvoj_instagram ili broj telefona" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next" required aria-required="true">
+          <!-- NACRT: Vanja odobrava -->
+          <p class="err" id="err-kontakt" hidden><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg><span>Napiši Instagram ili broj, da znam gde da ti se javim.</span></p>
+        </div>
+        <div class="field">
+          <label for="f-napomena">Nešto što treba da znam? <span class="opt">(nije obavezno)</span></label>
+          <textarea class="input" id="f-napomena" name="napomena" rows="3" enterkeyhint="done"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="sheet__foot">
+      <button type="submit" class="btn">Pošalji prijavu</button>
+    </div>
+  </form>
+
+  <div class="view" id="success-view" hidden>
+    <div class="sheet__scroll">
+      <div class="success">
+        <svg class="bow" aria-hidden="true"><use href="#bow"/></svg>
+        <h3 id="success-title" tabindex="-1">Super, skoro je gotovo!</h3>
+        <dl class="summary" id="summary"></dl>
+        <p>Poslednji korak: pošalji mi ovu poruku u DM. Ja ću je kopirati, ti je samo nalepi. 🎀</p>
+        <label class="msg-label" for="msg">Tvoja poruka</label>
+        <textarea class="input msg" id="msg" rows="5" readonly></textarea>
+        <div class="success-actions">
+          <button type="button" class="linkbtn" id="copy-again">Kopiraj ponovo</button>
+          <button type="button" class="linkbtn linkbtn--soft" id="edit-form">Izmeni prijavu</button>
+        </div>
+        <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="sheet__foot">
+      <a class="btn" id="open-dm" href="https://ig.me/m/cupavavanja"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Otvori moj DM</a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  root.classList.add('js');
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ---------- Kovrdže: iscrtavanje pri ulasku u ekran ---------- */
+  const curls = $$('.curl');
+  if ('IntersectionObserver' in window && !reduced.matches) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-drawn'); io.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    curls.forEach((c) => io.observe(c));
+  } else curls.forEach((c) => c.classList.add('is-drawn'));
+
+  /* ---------- Navigacija: visina + aktivna stavka ---------- */
+  const tabbar = $('.tabbar');
+  const navLinks = $$('.tabbar a[data-nav]');
+  const setNavSpace = () => {
+    const mobile = !matchMedia('(min-width: 900px)').matches;
+    root.style.setProperty('--nav-space', mobile ? (tabbar.offsetHeight + 28) + 'px' : '0px');
+  };
+  setNavSpace();
+  if ('ResizeObserver' in window) new ResizeObserver(setNavSpace).observe(tabbar);
+  addEventListener('resize', setNavSpace);
+
+  const setActive = (key) => navLinks.forEach((a) => {
+    if (a.dataset.nav === key) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+  });
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.dataset.nav); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    $$('main > section[data-nav]').forEach((s) => spy.observe(s));
+  }
+
+  /* ---------- Toast ---------- */
+  const toast = $('#toast');
+  let toastT;
+  const showToast = (text) => {
+    toast.textContent = '';
+    requestAnimationFrame(() => {
+      toast.textContent = text;
+      toast.classList.add('is-on');
+      clearTimeout(toastT);
+      toastT = setTimeout(() => toast.classList.remove('is-on'), 2000);
+    });
+  };
+
+  /* ---------- Kopiranje (clipboard + fallback selekcija) ---------- */
+  const selectEl = (el) => {
+    if (el.select) { el.focus({ preventScroll: true }); el.select(); el.setSelectionRange(0, el.value.length); return; }
+    const r = document.createRange(); r.selectNodeContents(el);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  };
+  const legacyCopy = (el) => {
+    try { selectEl(el); return document.execCommand('copy'); } catch (_) { return false; }
+  };
+  // Poziva se sinhrono u okviru dodira (iOS traži korisnički gest).
+  const copyText = (text, el) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).then(() => true, () => legacyCopy(el));
+    }
+    return Promise.resolve(legacyCopy(el));
+  };
+
+  /* ---------- GymBeam ---------- */
+  const gbCode = $('#gb-code');
+  $('#gb-copy').addEventListener('click', () => {
+    copyText(gbCode.textContent.trim(), gbCode).then((ok) => {
+      if (ok) showToast('Kopirano');
+      else { selectEl(gbCode); showToast('Kod je označen, kopiraj ga ručno'); }
+    });
+  });
+
+  /* ---------- Mit ili istina ---------- */
+  $$('.myth').forEach((btn) => btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(on));
+    $('.myth__front', btn).setAttribute('aria-hidden', String(on));
+    $('.myth__back', btn).setAttribute('aria-hidden', String(!on));
+  }));
+
+  /* ---------- Bottom sheet ---------- */
+  const sheet = $('#sheet');
+  const form = $('#form-view');
+  const success = $('#success-view');
+  let opener = null, savedY = 0, closing = false;
+
+  const fitViewport = () => {
+    const vv = window.visualViewport; if (!vv) return;
+    const kb = Math.max(0, innerHeight - vv.height - vv.offsetTop);
+    sheet.style.setProperty('--kb', kb > 40 ? kb + 'px' : '0px');
+    sheet.style.setProperty('--vvh', vv.height + 'px');
+  };
+  const lockScroll = () => {
+    savedY = scrollY;
+    Object.assign(document.body.style, { position: 'fixed', top: -savedY + 'px', left: '0', right: '0', width: '100%' });
+  };
+  const unlockScroll = () => {
+    Object.assign(document.body.style, { position: '', top: '', left: '', right: '', width: '' });
+    root.style.scrollBehavior = 'auto';
+    scrollTo(0, savedY);
+    root.style.scrollBehavior = '';
+  };
+  const showView = (v) => { form.hidden = v !== 'form'; success.hidden = v !== 'success'; };
+
+  const openSheet = (btn, plan) => {
+    if (sheet.open) return;
+    opener = btn;
+    if (plan) {
+      const r = form.querySelector(`input[name="plan"][value="${plan}"]`);
+      if (r) r.checked = true;
+      showView('form');
+    }
+    lockScroll();
+    root.classList.add('sheet-open');
+    sheet.showModal();
+    fitViewport();
+    // Fokus na naslov, ne na polje: tastatura ne iskače odmah na iPhone-u.
+    const focusTarget = success.hidden ? $('#sheet-title') : $('#success-title');
+    focusTarget.focus({ preventScroll: true });
+    requestAnimationFrame(() => requestAnimationFrame(() => sheet.classList.add('is-open')));
+  };
+  const closeSheet = () => {
+    if (!sheet.open || closing) return;
+    closing = true;
+    sheet.classList.remove('is-open');
+    root.classList.remove('sheet-open');
+    const done = () => {
+      sheet.close();
+      closing = false;
+      unlockScroll();
+      if (opener) opener.focus({ preventScroll: true });
+    };
+    if (reduced.matches) done(); else setTimeout(done, 300);
+  };
+
+  $$('[data-open-sheet]').forEach((b) => b.addEventListener('click', () => openSheet(b, b.dataset.plan)));
+  $$('[data-close]', sheet).forEach((b) => b.addEventListener('click', closeSheet));
+  // Tab ostaje u sheetu (sa poslednjeg na prvo i obrnuto).
+  sheet.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const f = $$('button, a[href], input, textarea', sheet).filter((el) => !el.closest('[hidden]') && el.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    const a = document.activeElement;
+    if (e.shiftKey && (a === first || a.tabIndex < 0)) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && a === last) { e.preventDefault(); first.focus(); }
+  });
+  sheet.addEventListener('cancel', (e) => { e.preventDefault(); closeSheet(); });          // Esc
+  sheet.addEventListener('click', (e) => { if (e.target === sheet) closeSheet(); });        // tap na pozadinu
+  if (window.visualViewport) {
+    visualViewport.addEventListener('resize', () => sheet.open && fitViewport());
+    visualViewport.addEventListener('scroll', () => sheet.open && fitViewport());
+  }
+
+  /* ---------- Validacija ---------- */
+  const fields = [
+    { input: $('#f-ime'), err: $('#err-ime'), ok: (v) => v.trim().length > 0 },
+    { input: $('#f-kontakt'), err: $('#err-kontakt'), ok: (v) => v.trim().length >= 3 },
+  ];
+  const setError = (f, on) => {
+    f.err.hidden = !on;
+    if (on) { f.input.setAttribute('aria-invalid', 'true'); f.input.setAttribute('aria-describedby', f.err.id); }
+    else { f.input.removeAttribute('aria-invalid'); f.input.removeAttribute('aria-describedby'); }
+  };
+  fields.forEach((f) => f.input.addEventListener('input', () => { if (!f.err.hidden && f.ok(f.input.value)) setError(f, false); }));
+
+  /* ---------- Poruka ---------- */
+  const msgEl = $('#msg');
+  const buildMessage = () => {
+    const fd = new FormData(form);
+    const ime = fd.get('ime').trim();
+    const plan = fd.get('plan') || 'Ne znam još';
+    const ciljevi = fd.getAll('cilj');
+    const kontakt = fd.get('kontakt').trim();
+    const napomena = (fd.get('napomena') || '').trim();
+    const text = `Ćao Vanja! Zovem se ${ime}. Zanima me: ${plan}. Cilj: ${ciljevi.length ? ciljevi.join(', ') : 'još ne znam'}. Kontakt: ${kontakt}.${napomena ? ' ' + napomena : ''}`;
+    return { ime, plan, ciljevi, kontakt, text };
+  };
+  const renderSummary = (d) => {
+    const dl = $('#summary'); dl.textContent = '';
+    [['Ime', d.ime], ['Plan', d.plan], ['Cilj', d.ciljevi.length ? d.ciljevi.join(', ') : 'još ne znam'], ['Kontakt', d.kontakt]].forEach(([k, v]) => {
+      const row = document.createElement('div');
+      const dt = document.createElement('dt'); dt.textContent = k;
+      const dd = document.createElement('dd'); dd.textContent = v;
+      row.append(dt, dd); dl.append(row);
+    });
+  };
+  // NACRT: Vanja odobrava (tekstovi statusa ispod)
+  const status = $('#copy-status');
+  const reportCopy = (ok) => {
+    status.textContent = ok ? 'Poruka je kopirana.' : 'Kopiranje nije uspelo. Označi poruku iznad i kopiraj je ručno.';
+    if (!ok) selectEl(msgEl);
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const bad = fields.filter((f) => !f.ok(f.input.value));
+    fields.forEach((f) => setError(f, bad.includes(f)));
+    if (bad.length) { bad[0].input.focus(); return; }
+
+    const data = buildMessage();
+    msgEl.value = data.text;
+    renderSummary(data);
+    // Ovde bi išao fetch() ka pravoj formi (Formspree) kad se poveže.
+    status.textContent = '';
+    copyText(data.text, msgEl).then((ok) => { if (ok) status.textContent = 'Poruka je već kopirana.'; });
+    showView('success');
+    $('#success-title').focus({ preventScroll: true });
+    $('.sheet__scroll', success).scrollTop = 0;
+  });
+
+  $('#copy-again').addEventListener('click', () => copyText(msgEl.value, msgEl).then(reportCopy));
+  $('#edit-form').addEventListener('click', () => { showView('form'); $('#f-ime').focus(); });
+  // Kopiranje kreće u okviru dodira, link zatim normalno otvara DM.
+  $('#open-dm').addEventListener('click', () => { copyText(msgEl.value, msgEl).then(reportCopy); });
+})();
+</script>
+</body>
+</html>
